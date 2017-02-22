@@ -1,0 +1,58 @@
+<template name="Item">
+		<div class="header">
+			<h4>{{name}}</h4>
+      <div class="header-image right">
+      <img src="{{qrBaseURL}}/qr/{{uuid}}"/></div>
+		</div>
+			<div class="form-group">
+        <div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-qrcode"></i></span>
+					<input class="form-control" disabled name="uuid" value="{{uuid}}">
+				</div>
+        <div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-inbox"></i></span>
+					<input class="form-control" disabled name="inventoryNumber" value="{{inventoryNumber}}" placeholder="{{_ 'inventoryNumberPlaceholder'}}">
+				</div>
+				<div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+					<input class="form-control" disabled name="name" value="{{name}}" placeholder="{{_ 'namePlaceholder'}}">
+				</div>
+				<div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+					<input class="form-control" disabled name="description" value="{{description}}" placeholder="{{_ 'descriptionPlaceholder'}}">
+				</div>
+        <div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-folder-close"></i></span>
+            <select class="form-control inForm" disabled id="department">
+              {{#each departments}}
+              <option value="{{this.name}}" {{selectedDepartment this.name}}>{{this.name}}</option>
+              {{/each}}
+            </select>
+				</div>
+        <div class="input-group top-buffer">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+            <select class="form-control inForm" disabled id="storage">
+              {{#each storages}}
+              <option value="{{this.name}}" {{selectedStorage this.name}}>{{this.name}}</option>
+              {{/each}}
+            </select>
+        </div>
+        <div class="input-group top-buffer">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <select class="form-control inForm" disabled id="caretaker">
+              {{#each caretakers}}
+              <option value="{{this.name}}" {{selectedCaretaker this.name}}>{{this.name}}</option>
+              {{/each}}
+            </select>
+        </div>
+        <div class="input-group top-buffer" id="updateValidationDatePicker">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-check"></i></span>
+          <input type="text" class="form-control" disabled name="verification" value="{{verificationDate}}" placeholder="{{_ 'verificationDatePlaceholder'}}">
+          <span class="input-group-addon">
+            <input type="checkbox" name="requiresVerification" disabled {{isVerificationRequired}}>
+          </span>
+        </div>
+      </div>
+
+      <div style="visibility: hidden;height:0px;width:0px;" id="itemData">{{rawJSON}}</div>
+</template>

@@ -1,0 +1,56 @@
+<template name="updateAccountModalInner">
+	{{#with userInScope}}
+		<div class="modal-header">
+			<h4>Update {{email}}</h4>
+		</div>
+		<div class="modal-body">
+			<div class="form-group" id="updateAccount">
+				<div class="input-group">
+					<span class="input-group-addon">{{_ "name"}}</span>
+					<input data-user-id="{{_id}}" class="form-control admin-user-info" name="username" value="{{username}}" placeholder="{{username}}">
+				</div>
+        <div class="input-group top-buffer">
+					<span class="input-group-addon">{{_ "commonname"}}</span>
+					<input data-user-id="{{_id}}" class="form-control admin-user-info" name="commonname" value="{{cn}}" placeholder="{{_ "commonname"}}">
+				</div>
+				<div class="input-group top-buffer">
+					<span class="input-group-addon">{{_ "annotations"}}</span>
+					<input data-user-id="{{_id}}" class="form-control admin-user-info" name="profile.annotations" value="{{profile.annotations}}" placeholder="{{_ "annotations"}}">
+				</div>
+				<div class="input-group top-buffer">
+					<span class="input-group-addon">{{_ "TelegramId"}}</span>
+					<input data-user-id="{{_id}}" class="form-control admin-user-info" name="services.telegram.username" value="{{services.telegram.username}}" placeholder="">
+				</div>
+			</div>
+			{{#if roles}}
+				<ul class="list-group">
+					{{#each roles.__global_roles__}}
+						<li class="list-group-item">
+							<button data-user-id="{{../_id}}" class="btn btn-danger btn-xs remove-role" type="button">Remove</button>
+							<span class="pull-right">{{this}}</span>
+						</li>
+					{{/each}}
+				</ul>
+			{{else}}
+				This account has no roles.
+			{{/if}}
+			{{#if unsetRoles}}
+			<div class="btn-group clearfix full-width">
+				<button type="button" class="btn btn-success dropdown-toggle pull-right" data-toggle="dropdown">
+					<span class="glyphicon glyphicon-plus"></span> Add Role
+				</button>
+				<ul class="dropdown-menu pull-right" role="menu">
+					{{#each unsetRoles}}
+						<li><a href="#" class="add-role" data-user-id="{{../_id}}">{{this}}</a></li>
+					{{/each}}
+				</ul>
+			</div>
+			{{else}}
+			<em>All roles already set.</em>
+			{{/if}}
+		</div>
+		<div class="modal-footer">
+			<button type="button" data-dismiss="modal" class="btn btn-primary">Done</button>
+		</div>
+	{{/with}}
+</template>

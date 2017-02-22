@@ -1,0 +1,5 @@
+apps:
+  - script: 'main.js'
+    name: 'censo'
+    watch: true
+    node_args: '--optimize_for_size --max_old_space_size=256 --gc_interval=100'

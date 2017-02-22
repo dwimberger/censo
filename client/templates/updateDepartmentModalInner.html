@@ -1,0 +1,23 @@
+<template name="updateDepartmentModalInner">
+	{{#with departmentInScope}}
+		<div class="modal-header">
+			<h4>{{name}}</h4>
+		</div>
+    <div class="modal-body">
+			<div class="form-group" id="updateDepartment">
+				<div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+					<input class="form-control" name="departmentName" value="{{name}}" placeholder="{{_ 'namePlaceholder'}}">
+				</div>
+				<div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+					<input class="form-control" name="departmentDescription" value="{{description}}" placeholder="{{_ 'descriptionPlaceholder'}}">
+				</div>
+      </div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" data-dismiss="modal" class="btn btn-danger" id="doDeleteDepartment">{{_ 'delete'}}</button>
+      <button type="button" data-dismiss="modal" class="btn btn-primary" id="doUpdateDepartment">{{_ 'update'}}</button>
+		</div>
+	{{/with}}
+</template>

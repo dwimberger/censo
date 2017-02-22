@@ -1,0 +1,19 @@
+<template name="Settings">
+   <form class="settingsForm">
+     <fieldset disabled>
+       <div class="form-group">
+         <label for="censoIdentifier">{{_ "censoId"}}</label>
+         <div class="input-group">
+           <input class="form-control disabled" type="text" name="censoIdentifier" value="{{myId}}"/>
+           <a href="https://telegram.me/{{botName}}?start={{myId}}"  class="input-group-addon glyphicon glyphicon-send"></a>
+         </div>
+       </div>
+       <div class="form-group">
+           <label for="telegramId">{{_ "telegramId"}}</label>
+           <input class="form-control disabled" type="text" name="telegramId"
+            value="{{telegramUsername}}" />
+       </div>
+     </fieldset>
+     <button type="submit" class="btn btn-success">{{_ "save"}}</button>
+   </form>
+</template>

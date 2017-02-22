@@ -1,0 +1,26 @@
+{
+    "public": {
+      "qrBaseURL": "http://localhost:32776",
+      "botName": "censodevbot"
+    },
+    "ldap": {
+        "debug": true,
+        "domain": "wimpi.net",
+        "baseDn": "ou=users,dc=wimpi,dc=net",
+        "url": "ldap://localhost:10389",
+        "bindCn": "uid=admin,ou=system",
+        "bindPassword": "secret",
+        "autopublishFields": [
+            "cn",
+            "sn",
+            "sAMAccountName"
+        ],
+        "groupMembership": [
+            "admin",
+            "departments", "departments-manager",
+            "storages", "storages-manager",
+            "caretakers","caretakers-manager",
+            "items", "items-manager"
+        ]
+    }
+}

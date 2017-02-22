@@ -1,0 +1,65 @@
+<template name="createItemModalInner">
+		<div class="modal-header">
+			<h4>Create new Item</h4>
+      <div class="modal-header-image right">
+      {{#if uniqueId}}
+          <img src="{{qrBaseURL}}/qr/{{uniqueId}}"/>
+      {{/if}}
+      </div>
+		</div>
+		<div class="modal-body">
+			<div class="form-group" id="createItem">
+        <div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-qrcode"></i></span>
+					<input class="form-control" disabled name="uuid" value="{{uniqueId}}">
+				</div>
+        <div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-inbox"></i></span>
+					<input class="form-control" name="inventoryNumber" value="" placeholder="{{_ 'inventoryNumberPlaceholder'}}">
+				</div>
+				<div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+					<input class="form-control" name="name" value="" placeholder="{{_ 'namePlaceholder'}}">
+				</div>
+				<div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+					<input class="form-control" name="description" value="" placeholder="{{_ 'descriptionPlaceholder'}}">
+				</div>
+        <div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-folder-close"></i></span>
+            <select class="form-control inForm" id="createItemDepartment">
+              {{#each departments}}
+              <option value="{{this.name}}">{{this.name}}</option>
+              {{/each }}
+            </select>
+        </div>
+        <div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+            <select class="form-control inForm" id="createItemStorage">
+              {{#each storages}}
+              <option value="{{this.name}}">{{this.name}}</option>
+              {{/each }}
+            </select>
+        </div>
+        <div class="input-group top-buffer" id="createValidationDatePicker">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-check"></i></span>
+          <input type="text" class="form-control" name="verification" value="">
+          <span class="input-group-addon">
+            <input type="checkbox" name="requiresVerification">
+          </span>
+        </div>
+        <div class="input-group top-buffer">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <select class="form-control inForm" id="createItemCaretaker">
+              {{#each caretakers}}
+              <option value="{{this.name}}">{{this.name}}</option>
+              {{/each}}
+            </select>
+        </div>
+
+      </div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" data-dismiss="modal" class="btn btn-primary" id="doCreateItem">{{_ 'create'}}</button>
+		</div>
+</template>

@@ -1,0 +1,36 @@
+{
+  "name": "censo",
+  "description": "Censo telegram bot",
+  "version": "1.0.0",
+  "author": "dieter@wimpi.net",
+  "contributors": [
+    {
+      "name": "Dieter Wimberger",
+      "email": "dieter@wimpi.net"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://dwimberger@github.com/dwimberger/censo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dwimberger/censo/issues"
+  },
+  "keywords": [
+    "censo",
+    "telegram",
+    "bot"
+  ],
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.18.0",
+    "datatables.net-bs": "^2.1.1",
+    "jquery": "^1.11.2",
+    "meteor-node-stubs": "~0.2.4",
+    "moment": "^2.17.1"
+  }
+}

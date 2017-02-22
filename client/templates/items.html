@@ -1,0 +1,21 @@
+<template name="Items">
+
+  {{#if hasItemsManager}}
+    <button class="btn btn-success" type="button" id="addItem"><span class="glyphicon glyphicon-plus padright"></span>{{_ "addItem"}}</button>
+  {{/if}}
+
+  {{> tabular table=TabularTables.Items id="itemsid" selector=selector class="table table-striped table-bordered table-condensed"}}
+
+  {{#if hasItemsManager}}
+  <div class="row">
+    <div class="col-xs-3">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        <input id="exportDatePicker" type="text" class="form-control" name="export" value="{{exportDate}}" placeholder="{{_ 'exportDatePlaceholder'}}">
+        <span class="input-group-addon btn-primary" id="download"><i class="glyphicon glyphicon-download"></i></span>
+      </div>
+    </div>
+  </div>
+  {{> itemModal}}
+  {{/if}}
+</template>

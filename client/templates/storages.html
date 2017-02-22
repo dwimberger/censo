@@ -1,0 +1,10 @@
+<template name="Storages">
+
+  {{#if hasStoragesManager}}
+    <button class="btn btn-success" type="button" id="addStorage"><span class="glyphicon glyphicon-plus padright"></span>{{_ "addStorage"}}</button>
+  {{/if}}
+
+  {{> tabular table=TabularTables.Storages id="storagesid" selector=selector class="table table-striped table-bordered table-condensed"}}
+
+	{{> storageModal}}
+</template>

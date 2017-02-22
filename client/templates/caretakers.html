@@ -1,0 +1,10 @@
+<template name="Caretakers">
+
+  {{#if hasCaretakersManager}}
+    <button class="btn btn-success" type="button" id="addCaretaker"><span class="glyphicon glyphicon-plus padright"></span>{{_ "addCaretaker"}}</button>
+  {{/if}}
+
+  {{> tabular table=TabularTables.Caretakers id="caretakersid" selector=selector class="table table-striped table-bordered table-condensed"}}
+
+	{{> caretakerModal}}
+</template>

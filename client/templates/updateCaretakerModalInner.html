@@ -1,0 +1,27 @@
+<template name="updateCaretakerModalInner">
+	{{#with caretakerInScope}}
+		<div class="modal-header">
+			<h4>{{name}}</h4>
+		</div>
+    <div class="modal-body">
+			<div class="form-group" id="updateCaretaker">
+				<div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+					<input class="form-control" name="caretakerName" value="{{name}}" placeholder="{{_ 'namePlaceholder'}}">
+				</div>
+				<div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+					<input class="form-control" name="caretakerDescription" value="{{description}}" placeholder="{{_ 'descriptionPlaceholder'}}">
+				</div>
+        <div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+					<input class="form-control" name="caretakerEmail" value="{{email}}" placeholder="{{_ 'emailPlaceholder'}}">
+				</div>
+      </div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" data-dismiss="modal" class="btn btn-danger" id="doDeleteCaretaker">{{_ 'delete'}}</button>
+      <button type="button" data-dismiss="modal" class="btn btn-primary" id="doUpdateCaretaker">{{_ 'update'}}</button>
+		</div>
+	{{/with}}
+</template>

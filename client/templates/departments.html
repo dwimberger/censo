@@ -1,0 +1,10 @@
+<template name="Departments">
+
+  {{#if hasDepartmentsManager}}
+    <button class="btn btn-success" type="button" id="addDepartment"><span class="glyphicon glyphicon-plus padright"></span>{{_ "addDepartment"}}</button>
+  {{/if}}
+
+  {{> tabular table=TabularTables.Departments id="departmentsid" selector=selector class="table table-striped table-bordered table-condensed"}}
+
+	{{> departmentModal}}
+</template>

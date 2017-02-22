@@ -1,0 +1,20 @@
+<template name="createDepartmentModalInner">
+		<div class="modal-header">
+			<h4>Create new Department</h4>
+		</div>
+		<div class="modal-body">
+			<div class="form-group" id="createDepartment">
+				<div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+					<input class="form-control" name="name" value="" placeholder="{{_ 'namePlaceholder'}}">
+				</div>
+				<div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+					<input class="form-control" name="description" value="" placeholder="{{_ 'descriptionPlaceholder'}}">
+				</div>
+      </div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" data-dismiss="modal" class="btn btn-primary" id="doCreateDepartment">{{_ 'create'}}</button>
+		</div>
+</template>

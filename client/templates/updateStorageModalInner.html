@@ -1,0 +1,31 @@
+<template name="updateStorageModalInner">
+	{{#with storageInScope}}
+		<div class="modal-header">
+			<h4>{{name}}</h4>
+		</div>
+    <div class="modal-body">
+			<div class="form-group" id="updateStorage">
+        <div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-qrcode"></i></span>
+					<input class="form-control" disabled name="uuid" value="{{uuid}}">
+				</div>
+				<div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+					<input class="form-control" name="name" value="{{name}}" placeholder="{{_ 'namePlaceholder'}}">
+				</div>
+				<div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+					<input class="form-control" name="description" value="{{description}}" placeholder="{{_ 'descriptionPlaceholder'}}">
+				</div>
+        <div class="input-group top-buffer">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+					<input class="form-control" name="location" value="{{location}}" placeholder="{{_ 'locationPlaceholder'}}">
+				</div>
+      </div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" data-dismiss="modal" class="btn btn-danger" id="doDeleteStorage">Delete</button>
+      <button type="button" data-dismiss="modal" class="btn btn-primary" id="doUpdateStorage">Update</button>
+		</div>
+	{{/with}}
+</template>
