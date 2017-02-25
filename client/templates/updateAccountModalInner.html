@@ -1,7 +1,7 @@
 <template name="updateAccountModalInner">
 	{{#with userInScope}}
 		<div class="modal-header">
-			<h4>Update {{email}}</h4>
+			<h4>{{_ "update"}} {{email}}</h4>
 		</div>
 		<div class="modal-body">
 			<div class="form-group" id="updateAccount">
@@ -32,12 +32,12 @@
 					{{/each}}
 				</ul>
 			{{else}}
-				This account has no roles.
+        {{_ "noRoles"}}
 			{{/if}}
 			{{#if unsetRoles}}
 			<div class="btn-group clearfix full-width">
 				<button type="button" class="btn btn-success dropdown-toggle pull-right" data-toggle="dropdown">
-					<span class="glyphicon glyphicon-plus"></span> Add Role
+					<span class="glyphicon glyphicon-plus"></span> {{_ "addRole"}}
 				</button>
 				<ul class="dropdown-menu pull-right" role="menu">
 					{{#each unsetRoles}}
@@ -46,11 +46,11 @@
 				</ul>
 			</div>
 			{{else}}
-			<em>All roles already set.</em>
+			<em>{{_ "allRolesSet"}}</em>
 			{{/if}}
 		</div>
 		<div class="modal-footer">
-			<button type="button" data-dismiss="modal" class="btn btn-primary">Done</button>
+			<button type="button" data-dismiss="modal" class="btn btn-primary">{{_ "done"}}</button>
 		</div>
 	{{/with}}
 </template>

@@ -28,6 +28,9 @@ Meteor.publish("userData", function () {
               'services.google.email': 1,
               'services.ingress.username': 1,
               'profile.annotations': 1,
+              'username': 1,
+              'displayName': 1,
+              'language': 1,
               'roles':1
             }
     	});

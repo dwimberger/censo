@@ -145,7 +145,7 @@ Items.update(
    console.log('%Q= %j Proj=%j', query, fields);
    var exportItems = Items.find(query, fields).fetch();
    exportItems.forEach(function(elem, idx, arr) {
-      elem.uuid = 'http://localhost:3000/item/' + elem.uuid;
+      elem.uuid = Meteor.settings.public.qrBaseURL + '/item/' + elem.uuid;
    });
    console.log('%j', exportItems);
    var heading = false; // Optional, defaults to true
@@ -253,5 +253,13 @@ Items.update(
   obj[property] = value;
   console.log('%j',obj);
   Meteor.users.update({_id: id}, {$set: obj});
+},
+'updateUserLanguage'(value) {
+  var user = Meteor.user();
+  console.log('%j lang %j value %j', user, value);
+  Meteor.users.update(
+    {_id: this.userId},
+    {$set: {'language': value}}
+  );
 }
 })

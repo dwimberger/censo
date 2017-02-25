@@ -8,12 +8,20 @@
            <a href="https://telegram.me/{{botName}}?start={{myId}}"  class="input-group-addon glyphicon glyphicon-send"></a>
          </div>
        </div>
-       <div class="form-group">
-           <label for="telegramId">{{_ "telegramId"}}</label>
-           <input class="form-control disabled" type="text" name="telegramId"
-            value="{{telegramUsername}}" />
-       </div>
-     </fieldset>
-     <button type="submit" class="btn btn-success">{{_ "save"}}</button>
+         <label for="telegramId">{{_ "telegramId"}}</label>
+         <div class="form-group">
+           <input class="form-control disabled inForm" type="text" name="telegramId"
+              value="{{telegramId}}" />
+         </div>
+       </fieldset>
+         <label for="language">{{_ "language"}}</label>
+         <div class="input-group">
+             <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+             <select class="form-control inForm" id="language">
+               {{#each languages}}
+               <option value="{{this.code}}" {{selectedLanguage this.code}}>{{this.labels.name}}</option>
+               {{/each}}
+             </select>
+         </div>
    </form>
 </template>
