@@ -28,20 +28,19 @@ Template.Items.events({
         window.saveAs(blob, nameFile);
       }
     });
+  },
+  'click #print': function (event) {
+    event.preventDefault();
+    console.log('Download');
+    var exportFromDate = $("input[name='export']").val();
+    var nameFile = 'items_print.txt';
+    Meteor.call('items.print', exportFromDate, function(err, fileContent) {
+      if(fileContent) {
+        var blob = new Blob([fileContent], {type: "text/plain;charset=utf-8"});
+        window.saveAs(blob, nameFile);
+      }
+    });
   }
-});
-'click #print': function (event) {
-  event.preventDefault();
-  console.log('Download');
-  var exportFromDate = $("input[name='export']").val();
-  var nameFile = 'items_print.txt';
-  Meteor.call('items.print', exportFromDate, function(err, fileContent) {
-    if(fileContent) {
-      var blob = new Blob([fileContent], {type: "text/plain;charset=utf-8"});
-      window.saveAs(blob, nameFile);
-    }
-  });
-}
 });
 Template.Items.rendered = function() {
     if(!this._rendered) {
