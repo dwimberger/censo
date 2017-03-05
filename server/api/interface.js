@@ -4,6 +4,16 @@ import { check } from 'meteor/check';
 const fs = require('fs');
 const moment = require('moment');
 
+const monarchTemplate =
+'{F,1,A,R,E,300,200,"DRWE2Q" |\n' +
+'T,1,20,V,70,10,1,2,1,1,B,L,0,0 |\n' +
+'B,2,200,V,10,10,36,0,51,0,B,0 |\n' +
+'}\n' +
+'{B,1,N,001 |\n' +
+'1,"$TXT$"|\n'+
+'2,"LAA$QRTXT$" |\n'+
+'}\n';
+
 Meteor.methods({
   'departments.insert'(doc) {
 
@@ -151,6 +161,27 @@ Items.update(
    var heading = false; // Optional, defaults to true
    var delimiter = ";" // Optional, defaults to ",";
    return exportcsv.exportToCSV(exportItems, heading, delimiter);
+},
+'items.print'(fromDate) {
+   if (! this.userId
+     ||!Roles.userIsInRole(Meteor.user(), ['admin','items-manager'],
+           Roles.GLOBAL_GROUP)) {
+    throw new Meteor.Error(401, 'not-authorized');
+   }
+   console.log('export %j', fromDate);
+   var date = moment(fromDate,'DD/MM/YYYY');
+   var query = { "createdAt" : { $gte : date.toDate() }};
+   var fields = {fields: {inventoryNumber:1, uuid:1, _id: 0}};
+   console.log('%Q= %j Proj=%j', query, fields);
+   var exportItems = Items.find(query, fields).fetch();
+   var data = '';
+   exportItems.forEach(function(elem, idx, arr) {
+      var qrtext = Meteor.settings.public.qrBaseURL + '/item/' + elem.uuid;
+      data += monarchTemplate
+                .replace('$TXT$', elem.inventoryNumber)
+                .replace('$QRTXT$', qrtext);
+   });
+  return data;
 },
 'caretakers.insert'(doc) {
 

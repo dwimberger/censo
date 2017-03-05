@@ -1,7 +1,6 @@
 Template.Storages.events({
   'click #addStorage': function (event) {
   	event.preventDefault();
-    Session.set('storageUuid', Meteor.uuid());
     Session.set('storageInScope', {});
     $("#createStorage input").val('');
     $('#storageCreateModal').modal('show');

@@ -7,7 +7,6 @@ Template.updateStorageModalInner.helpers({
 Template.updateStorageModalInner.events({
   'click #doDeleteStorage': function (event) {
     event.preventDefault();
-    var uuid =  $("#updateStorage input[name='uuid']").val();
     Meteor.call('storages.delete', Session.get('storageInScope')._id);
   },
   'click #doUpdateStorage': function (event) {
@@ -17,7 +16,6 @@ Template.updateStorageModalInner.events({
     var location =   $("#updateStorage input[name='location']").val();
 
     var storageDoc = {
-      uuid: Session.get('storageInScope').uuid,
       name: name,
       description: description,
       location: location

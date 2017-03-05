@@ -12,7 +12,7 @@ Template.Items.events({
     var rowData = dataTable.row(event.currentTarget).data();
     if (!rowData) return; // Won't be data if a placeholder row is clicked
     if(Roles.userIsInRole(Meteor.userId(),
-      ['items-manager','admin'], Roles.GLOBAL_GROUP)) {    
+      ['items-manager','admin'], Roles.GLOBAL_GROUP)) {
       Session.set('itemInScope', rowData);
       $('#itemUpdateModal').modal('show');
     }
@@ -23,15 +23,25 @@ Template.Items.events({
     var exportFromDate = $("input[name='export']").val();
     var nameFile = 'items_export.csv';
     Meteor.call('items.export', exportFromDate, function(err, fileContent) {
-      console.log('Returned fc=', fileContent);
       if(fileContent) {
         var blob = new Blob([fileContent], {type: "text/plain;charset=utf-8"});
-        console.log(blob);
         window.saveAs(blob, nameFile);
-        console.log('Called saveAs');
       }
     });
   }
+});
+'click #print': function (event) {
+  event.preventDefault();
+  console.log('Download');
+  var exportFromDate = $("input[name='export']").val();
+  var nameFile = 'items_print.txt';
+  Meteor.call('items.print', exportFromDate, function(err, fileContent) {
+    if(fileContent) {
+      var blob = new Blob([fileContent], {type: "text/plain;charset=utf-8"});
+      window.saveAs(blob, nameFile);
+    }
+  });
+}
 });
 Template.Items.rendered = function() {
     if(!this._rendered) {
