@@ -16,6 +16,7 @@ Template.updateStorageModalInner.events({
     var location =   $("#updateStorage input[name='location']").val();
 
     var storageDoc = {
+      _id: Session.get('storageInScope')._id,
       name: name,
       description: description,
       location: location

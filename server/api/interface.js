@@ -52,7 +52,7 @@ Meteor.methods({
    doc.modifiedBy = this.userId;
    DepartmentContext.validate(doc);
    Departments.update(
-     {uuid:doc.uuid},
+     {_id:doc._id},
      {$set: doc}
    );
   },
@@ -93,7 +93,7 @@ Meteor.methods({
   doc.modifiedBy = this.userId;
   StorageContext.validate(doc);
   Storages.update(
-    {uuid:doc.uuid},
+    {_id:doc._id},
     {$set: doc}
   );
 },
@@ -220,7 +220,7 @@ Items.update(
  doc.modifiedBy = this.userId;
  CaretakersContext.validate(doc);
  Caretakers.update(
-   {uuid:doc.uuid},
+   {_id:doc._id},
    {$set: doc}
  );
 },
