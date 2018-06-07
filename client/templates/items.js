@@ -1,7 +1,7 @@
 Template.Items.events({
   'click #addItem': function (event) {
   	event.preventDefault();
-    Session.set('itemUuid', Meteor.uuid());
+    Session.set('itemUuid', uuid.new());
     Session.set('itemInScope', {});
     $("#createItem input").val('');
     $('#itemCreateModal').modal('show');

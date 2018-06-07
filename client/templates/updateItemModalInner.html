@@ -1,64 +1,85 @@
 <template name="updateItemModalInner">
-	{{#with itemInScope}}
-		<div class="modal-header">
-			<h4>{{name}}</h4>
-      <div class="modal-header-image right">
-      <img src="{{qrBaseURL}}/qr/{{uuid}}"/></div>
-		</div>
-    <div class="modal-body">
-			<div class="form-group" id="updateItem">
-        <div class="input-group">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-qrcode"></i></span>
-					<input class="form-control" disabled name="uuid" value="{{uuid}}">
-				</div>
-        <div class="input-group top-buffer">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-inbox"></i></span>
-					<input class="form-control" name="inventoryNumber" value="{{inventoryNumber}}" placeholder="{{_ 'inventoryNumberPlaceholder'}}">
-				</div>
-				<div class="input-group top-buffer">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
-					<input class="form-control" name="name" value="{{name}}" placeholder="{{_ 'namePlaceholder'}}">
-				</div>
-				<div class="input-group top-buffer">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-					<input class="form-control" name="description" value="{{description}}" placeholder="{{_ 'descriptionPlaceholder'}}">
-				</div>
-        <div class="input-group top-buffer">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-folder-close"></i></span>
-            <select class="form-control inForm" id="updateItemDepartment">
-              {{#each departments}}
-              <option value="{{this.name}}" {{selectedDepartment this.name}}>{{this.name}}</option>
-              {{/each}}
-            </select>
-				</div>
-        <div class="input-group top-buffer">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
-            <select class="form-control inForm" id="updateItemStorage">
-              {{#each storages}}
-              <option value="{{this.name}}" {{selectedStorage this.name}}>{{this.name}}</option>
-              {{/each}}
-            </select>
-        </div>
-        <div class="input-group top-buffer">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <select class="form-control inForm" id="updateItemCaretaker">
-              {{#each caretakers}}
-              <option value="{{this.name}}" {{selectedCaretaker this.name}}>{{this.name}}</option>
-              {{/each}}
-            </select>
-        </div>
-        <div class="input-group top-buffer" id="updateValidationDatePicker">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-check"></i></span>
-          <input type="text" class="form-control" name="verification" value="{{displayVerificationDate}}" placeholder="{{_ 'verificationDatePlaceholder'}}">
-          <span class="input-group-addon">
-            <input type="checkbox" name="requiresVerification" {{isVerificationRequired}}>
-          </span>
-        </div>
+  {{#with itemInScope}}
+  <div class="modal-header">
+    <h4>{{name}}</h4>
+    <div class="modal-header-image right">
+      <img src="{{qrBaseURL}}/qr/{{uuid}}" />
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="form-group" id="updateItem">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-qrcode"></i>
+        </span>
+        <input class="form-control" disabled name="uuid" value="{{uuid}}">
       </div>
-		</div>
-		<div class="modal-footer">
-			<button type="button" data-dismiss="modal" class="btn btn-danger" id="doDeleteItem">{{_ "delete"}}</button>
-      <button type="button" data-dismiss="modal" class="btn btn-primary" id="doUpdateItem">{{_ "update"}}</button>
-		</div>
-	{{/with}}
+      <div class="input-group top-buffer">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-inbox"></i>
+        </span>
+        <input class="form-control" name="inventoryNumber" value="{{inventoryNumber}}" placeholder="{{_ 'inventoryNumberPlaceholder'}}">
+      </div>
+      <div class="input-group top-buffer">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-tag"></i>
+        </span>
+        <input class="form-control" name="name" value="{{name}}" placeholder="{{_ 'namePlaceholder'}}">
+      </div>
+      <div class="input-group top-buffer">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-comment"></i>
+        </span>
+        <input class="form-control" name="description" value="{{description}}" placeholder="{{_ 'descriptionPlaceholder'}}">
+      </div>
+      <div class="input-group top-buffer">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-folder-close"></i>
+        </span>
+        <select class="form-control inForm" id="updateItemDepartment">
+          {{#each departments}}
+          <option value="{{this.name}}" {{selectedDepartment this.name}}>{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="input-group top-buffer">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-briefcase"></i>
+        </span>
+        <select class="form-control inForm" id="updateItemStorage">
+          {{#each storages}}
+          <option value="{{this.name}}" {{selectedStorage this.name}}>{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="input-group top-buffer">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-user"></i>
+        </span>
+        <select class="form-control inForm" id="updateItemCaretaker">
+          {{#each caretakers}}
+          <option value="{{this.name}}" {{selectedCaretaker this.name}}>{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="input-group top-buffer" id="updateValidationDatePicker">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-check"></i>
+        </span>
+        <input type="text" class="form-control" name="verification" value="{{displayVerificationDate}}" placeholder="{{_ 'verificationDatePlaceholder'}}">
+        <span class="input-group-addon">
+          <input type="checkbox" name="requiresVerification" {{isVerificationRequired}}>
+        </span>
+      </div>
+      <div class="input-group top-buffer" id="updateFileUpload">
+        {{> fileUpload}}
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" data-dismiss="modal" class="btn btn-warning" id="doPrintItem">{{_ "print"}}</button>
+    <button type="button" data-dismiss="modal" class="btn btn-danger" id="doDeleteItem">{{_ "delete"}}</button>
+    <button type="button" data-dismiss="modal" class="btn btn-primary" id="doUpdateItem">{{_ "update"}}</button>
+  </div>
+  {{/with}}
 </template>

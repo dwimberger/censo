@@ -1,0 +1,13 @@
+<template name="fileUpload">
+    {{#if uploadedFile}}
+        <img class="thingyImage" src="{{uploadedFile.link}}" />
+    {{else}}
+    <div>{{_ 'noThingyImage'}}</div>
+    {{/if}}
+    {{#with currentUpload}}
+      {{_ 'thingyImageUploading'}} <b>{{file.name}}</b>:
+      <span id="progress">{{progress.get}}%</span>
+    {{else}}
+      <input id="fileInput" type="file" />
+    {{/with}}
+  </template>

@@ -1,15 +1,17 @@
 <template name="storageModal">
 	<div id="storageUpdateModal" class="modal fade" tabindex="-1" data-width="760" style="display:none;">
 		<div class="modal-dialog">
-			<div class="modal-content">
-				{{> updateStorageModalInner}}
+				<div class="modal-content">
+						<span class="button glyphicon glyphicon-remove-circle" data-dismiss="modal" aria-label="Close"></span>
+						{{> updateStorageModalInner}}
 			</div>
 		</div>
 	</div>
   <div id="storageCreateModal" class="modal fade" tabindex="-1" data-width="760" style="display:none;">
 		<div class="modal-dialog">
-			<div class="modal-content">
-				{{> createStorageModalInner}}
+				<div class="modal-content">
+						<span class="button glyphicon glyphicon-remove-circle" data-dismiss="modal" aria-label="Close"></span>
+						{{> createStorageModalInner}}
 			</div>
 		</div>
 	</div>

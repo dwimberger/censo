@@ -1,6 +1,6 @@
 {
   "name": "censo",
-  "description": "Censo telegram bot",
+  "description": "Censo",
   "version": "1.0.0",
   "author": "dieter@wimpi.net",
   "contributors": [
@@ -27,10 +27,11 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "babel-runtime": "^6.18.0",
+    "@babel/runtime": "^7.0.0-beta.47",
+    "babel-runtime": "^6.26.0",
     "datatables.net-bs": "^2.1.1",
-    "jquery": "^1.11.2",
-    "meteor-node-stubs": "~0.2.4",
-    "moment": "^2.17.1"
+    "jquery": "^1.12.4",
+    "meteor-node-stubs": "^0.2.11",
+    "moment": "^2.22.1"
   }
 }

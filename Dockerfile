@@ -1,4 +1,4 @@
-FROM keymetrics/pm2-docker-alpine:4
+FROM keymetrics/pm2-docker-alpine:8
 
 # Expose ports
 EXPOSE 3000

@@ -40,6 +40,7 @@
   "create": "Anlegen",
   "update": "Aktualisieren",
   "delete": "Löschen",
+  "print": "Drucken",
   "eMail": "eMail",
   "emailPlaceholder": "eMail Adresse eingeben",
   "exportItems": "Liste exportieren",
@@ -53,5 +54,9 @@
   "allRolesSet": "Alle Rollen bereits vergeben.",
   "done": "Erledigt",
   "censoSummary": "Censo Inventar Verwaltung",
-  "censoDescription": "Kleine Web-Applikation zur Verwaltung von Ablagen und Dingen."
+  "censoDescription": "Kleine Web-Applikation zur Verwaltung von Ablagen und Dingen.",
+  "noThingyImage": "Es wurde noch kein Bild hochgeladen.",
+  "thingyImageUploading": "Lädt hoch",
+  "thingyImageUploadFailed": "Fehler beim Hochladen: ",
+  "thingyImageUploadSuccess": "Erfolgreich hochgeladen: "
 }

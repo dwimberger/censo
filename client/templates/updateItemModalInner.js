@@ -42,8 +42,10 @@ Template.updateItemModalInner.rendered = function() {
 Template.updateItemModalInner.events({
   'click #doDeleteItem': function (event) {
     event.preventDefault();
-    var uuid =  $("#updateItem input[name='uuid']").val();
     Meteor.call('items.delete', Session.get('itemInScope')._id);
+  }, 'click #doPrintItem': function (event) {
+    event.preventDefault();
+    Meteor.call('items.printItem', Session.get('itemInScope')._id);
   },
   'click #doUpdateItem': function (event) {
     event.preventDefault();
